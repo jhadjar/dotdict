@@ -1,0 +1,2 @@
+# dotdict
+Dot accessible dictionary.
