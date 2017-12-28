@@ -10,7 +10,10 @@ class DotDict(object):
 
     Before::
 
-        >>> param = example['key1']['key2']['key3']
+        >>> dico = {'a': 5, 'b': 7, 'c': {'r': 8, 'd': 6}}
+        >>> param = dico['c']['r']
+        >>> param
+        8
 
     After::
 
