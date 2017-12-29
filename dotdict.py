@@ -36,11 +36,11 @@ class DotDict(object):
     """
 
     def __init__(self, origin):
-        self._original_dict = origin
+        self._origin = origin
         for key, value in origin.items():
-            if key == '_original_dict':
+            if key == '_origin':
                 msg = messages['name_squatting']
-                raise ValueError(msg.format(name='_original_dict'))
+                raise ValueError(msg.format(name='_origin'))
             if isinstance(value, dict):
                 setattr(self, key, self.__class__(value))
             else:
@@ -54,18 +54,17 @@ class DotDict(object):
 
     def __iter__(self):
         for key, value in self.__dict__.items():
-            if key != "_original_dict":
+            if key != "_origin":
                 yield key, value
 
     def __len__(self):
-        return len(self._original_dict)
+        return len(self._origin)
 
     def __eq__(self, other):
         try:
-            return self._original_dict == other._original_dict
+            return self._origin == other._origin
         except AttributeError:
             return False
 
     def __repr__(self):
-        r = "{self.__class__.__name__}({self._original_dict})"
-        return r.format(self=self)
+        return "{self.__class__.__name__}({self._origin})".format(self=self)
