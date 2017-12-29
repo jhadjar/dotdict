@@ -18,7 +18,7 @@ class DotDict(object):
     After::
 
         >>> example = DotDict({'a': 5, 'b': 7, 'c': {'r': 8, 'd': 6}})
-        >>>> example
+        >>> example
         DotDict({'a': 5, 'b': 7, 'c': {'r': 8, 'd': 6}})
         >>> example.a
         5
