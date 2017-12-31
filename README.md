@@ -27,7 +27,7 @@
     8
     >>> len(example)
     3
-    >>> example2 = DotDict({'d': 6, 'r': 8})
+    >>> example2 = DotDict({'a': 5, 'b': 7, 'c': {'r': 8, 'd': 6}})
     >>> example == example2
     True
     >>> for pair in example:
